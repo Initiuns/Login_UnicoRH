@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ÚnicoRH</title>
+    <style>
+        body {
+            background-image: linear-gradient(#19AFCF 60%, #FFFFFF 40%);
+            background-repeat: no-repeat;
+        }
+        
+        .logo {
+            width: 10vw;
+            height: 20vh;
+            transition: ease-in-out 500ms;
+        }
+        .img {
+            background-image: url("logo_unicoRhlogo_unicorh_tec.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            height: 150px;
+            width: 100%;
+        }
+        
+        .login {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 40vw;
+            height: 500px;
+            margin: 10% auto;
+            padding: 10px;
+            border-radius: 0px 10px 10px 0px;
+            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+            background: #fff;
+            transition: ease-in-out 500ms;
+        }
+        .cpf, 
+        .password {
+            flex-direction: column;    
+        }
+        
+        input[type="number"],
+        input[type="password"],
+        input[type="text"] {
+            padding: 10px;
+            width: 35vw;
+            display: block;
+            margin: 10px 0 10px 0;
+            border-radius: 5px;
+            border: solid 1px #ccc;
+        }
+        input[type="number"]:hover,
+        input[type="password"]:hover,
+        input[type="text"]:hover
+        {
+            outline: 1.5px solid #21caf5;
+        }
+        
+        label {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 400;
+        }
+        
+        .btn_group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: auto;
+        }
+        
+        button.btn {
+            border-radius: 5px;
+            padding: 10px;
+            background: #21caf5;
+            width: 100px;
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: ease-in-out 500ms;
+        }
+        button.btn:hover, 
+        button.btn:focus{
+            outline-offset: 0.4rem;
+            outline: 5px solid #21caf5;
+            transition: ease-in-out 500ms;
+            color: #21caf5;
+            background: #fff;
+            font-weight: bold;
+        }
+        
+        .link {
+            text-decoration: none;
+            color: #19AFCF;
+            margin-top: 10px;
+        }
+        
+        .imprint-en:lang(en),
+        .imprint-de:lang(de) {
+            display: inherit !important;
+        }
+        .imprint {
+            display: none;
+        }
+        
+        h2, p {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fff;
+            text-align: justify;
+        }
+        .api {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .left {
+            width: 30%;
+            background: #19AFCF;
+            height: 520px;
+            box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+            border-radius: 10px 0px 0px 10px;
+        }
+        .spacer {
+            padding: 20px;
+        }
+        
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+        .showPassword {
+            width: 35vw;
+            display: flex;
+            justify-content: start;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+        
+        @media screen and (max-width: 920px) {
+            .left {
+                display: none;
+            }
+            .logo {
+                width: 35vw;
+                transition: ease-in-out 500ms;
+            }
+        }
+        @media screen and (max-width: 768px) {
+            .logo {
+                width: 25vw;
+                transition: ease-in-out 500ms;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="api">
+        <div class="left">
+            <div class="spacer">
+                <h2>Bem vindo a Único RH!</h2>
+                <p>
+                    Sua plataforma de Admissão 100% digital 
+                </p>
+            </div>
+        </div>
+        <div class="right">
+            <form class="login" autocomplete="off" method="POST">
+                <div class="logo">
+                    <div class="img"></div>
+                </div>
+                <div class="cpf">
+                    <label for="cpf">CPF</label>
+                    <input id="cpf" type="number" />
+                </div>
+                <div class="password">
+                    <label for="password">Senha</label>
+                    <input id="password" type="password" />
+                </div>
+                <div class="showPassword">
+                    <input type="checkbox" class="showPass" onclick="myFunction()">Mostrar Senha
+                </div>
+                <div class="btn_group">
+                    <button class="btn">LOGIN</button>
+                    <a href="#" class="link" target="_blank" rel="noopener noreferrer">Esqueci minha senha</a>
+                </div>
+            </form>
+        </div>
+       
+    </div>
+    
+    <script>
+        var cpf = document.querySelector('.cpf');
+        var senha = document.querySelector('.senha');
+        var showPass = document.querySelector('.showPass');
+        
+        var cpfValido = /^(([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}))$/;   
+        
+        var btn = document.querySelector('.btn');
+        
+        console.log(text);
+        
+        function myFunction() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+              x.type = "text";
+            } else {
+              x.type = "password";
+            }
+          }
+        
+        showPass.addEventListener('click', () => {
+            if (senha.type === "password") {
+                senha.type = "text";
+            } else {
+                senha.type = "password";
+            }
+        });
+        
+        cpf.addEventListener('blur', () => {
+            if (cpfValido.test(cpf) === false) {
+                alert("CPF Incorreto!");
+            }
+        })
+        
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+           if (text.value !== undefined && senha.value !== undefined) {
+                alert('Campos estão vazios');
+           } 
+        });
+        
+    </script>
+</body>
+</html>
